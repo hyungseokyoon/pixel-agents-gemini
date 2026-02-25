@@ -46,7 +46,7 @@ const stages: StageStatus[] = [
   },
   {
     name: 'Stage 3: Vision Inspection',
-    description: 'Use Claude vision to auto-generate metadata for each asset',
+    description: 'Use Gemini vision to auto-generate metadata for each asset',
     completed: false,
     script: 'scripts/3-vision-inspect.ts',
   },
@@ -204,7 +204,7 @@ async function runStage2() {
 async function runStage3() {
   console.log('\n📍 Stage 3: Vision Inspection')
   console.log('─'.repeat(60))
-  console.log('Claude vision API analyzes each asset and generates metadata')
+  console.log('Gemini vision API analyzes each asset and generates metadata')
   console.log('Input: asset-editor-output.json + office_tileset_16x16.png')
   console.log('Output: tileset-metadata-draft.json')
   console.log()

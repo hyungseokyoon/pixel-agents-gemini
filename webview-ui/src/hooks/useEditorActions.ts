@@ -19,7 +19,7 @@ export interface EditorActions {
   panRef: React.MutableRefObject<{ x: number; y: number }>
   saveTimerRef: React.MutableRefObject<ReturnType<typeof setTimeout> | null>
   setLastSavedLayout: (layout: OfficeLayout) => void
-  handleOpenClaude: () => void
+  handleOpenGemini: () => void
   handleToggleEditMode: () => void
   handleToolChange: (tool: EditToolType) => void
   handleTileTypeChange: (type: TileTypeVal) => void
@@ -78,8 +78,8 @@ export function useEditorActions(
     setEditorTick((n) => n + 1)
   }, [getOfficeState, editorState, saveLayout])
 
-  const handleOpenClaude = useCallback(() => {
-    vscode.postMessage({ type: 'openClaude' })
+  const handleOpenGemini = useCallback(() => {
+    vscode.postMessage({ type: 'openGemini' })
   }, [])
 
   const handleToggleEditMode = useCallback(() => {
@@ -503,7 +503,7 @@ export function useEditorActions(
     panRef,
     saveTimerRef,
     setLastSavedLayout,
-    handleOpenClaude,
+    handleOpenGemini,
     handleToggleEditMode,
     handleToolChange,
     handleTileTypeChange,

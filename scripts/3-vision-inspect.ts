@@ -1,7 +1,7 @@
 /**
  * Stage 3: Vision Inspection & Auto-Metadata Generation
  *
- * Uses Claude's vision API to analyze each asset and suggest:
+ * Uses Gemini's vision API to analyze each asset and suggest:
  * - Name, Label, Category
  * - isDesk flag, canPlaceOnWalls flag
  *
@@ -126,7 +126,7 @@ function extractAssetPng(asset: AssetWithMetadata): Buffer {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// Vision analysis with Claude
+// Vision analysis with Gemini
 // ─────────────────────────────────────────────────────────────────────
 
 async function analyzeAsset(
@@ -160,7 +160,7 @@ Guidelines:
 
   try {
     const response = await client.messages.create({
-      model: 'claude-opus-4-6',
+      model: 'gemini-1.5-pro',
       max_tokens: 256,
       messages: [
         {
@@ -225,7 +225,7 @@ async function main() {
 
   const client = new Anthropic({ apiKey })
 
-  console.log(`🤖 Using Claude Opus 4.6 for vision analysis\n`)
+  console.log(`🤖 Using Gemini 1.5 Pro for vision analysis\n`)
 
   // Analyze each asset
   for (let i = 0; i < assets.length; i++) {
